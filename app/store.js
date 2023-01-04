@@ -1,9 +1,9 @@
-const { configureStore } = require("@reduxjs/toolkit/dist/configureStore");
+const { configureStore } = require("@reduxjs/toolkit");
 
 const counterReducer = require("../feature/counter/counterSlice");
 
 const store = configureStore({
-  counter: counterReducer,
+  reducer: { counter: counterReducer },
 });
 
 module.exports = store;
