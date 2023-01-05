@@ -25,10 +25,10 @@ const postSlice = createSlice({
     });
     builder.addCase(fetchPost.fulfilled, (state, action) => {
       state.loading = false;
-      state.post = action.payload;
+      state.post = JSON.stringify(action.payload);
       state.error = "";
     });
-    builder.addCase(fetchPost.pending, (state, action) => {
+    builder.addCase(fetchPost.rejected, (state, action) => {
       state.loading = false;
       state.post = [];
       state.error = action.payload.message;
