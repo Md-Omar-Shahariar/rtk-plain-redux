@@ -20,7 +20,7 @@ const counterSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(dynamicActions.increment, (state, action) => {
-      state += action.payload;
+      state.value += action.payload;
     });
   },
 });

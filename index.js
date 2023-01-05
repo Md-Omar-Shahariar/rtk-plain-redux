@@ -8,5 +8,5 @@ store.subscribe(() => {
   console.log(store.getState());
 });
 
-store.dispatch(counterAction.increment());
+// store.dispatch(counterAction.increment());
 store.dispatch(dynamicActions.increment(4));
