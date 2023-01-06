@@ -9,11 +9,11 @@ const postReducer = require("../feature/post/postSlice");
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    dynamicCounter: dynamicCounterReducer,
-    post: postReducer,
+    // counter: counterReducer,
+    // dynamicCounter: dynamicCounterReducer,
+    singlePost: postReducer,
   },
-  middleware: (getDefaultMiddlewares) => getDefaultMiddlewares().concat(logger),
+  //   middleware: (getDefaultMiddlewares) => getDefaultMiddlewares().concat(logger),
 });
 
 module.exports = store;

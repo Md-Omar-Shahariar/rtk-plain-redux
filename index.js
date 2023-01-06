@@ -9,6 +9,7 @@ store.subscribe(() => {
   console.log(store.getState());
 });
 
-// store.dispatch(counterAction.increment());
-store.dispatch(dynamicActions.increment(4));
 store.dispatch(fetchPost());
+// setTimeout(() => {
+//   console.log(store.getState());
+// }, 1000);
