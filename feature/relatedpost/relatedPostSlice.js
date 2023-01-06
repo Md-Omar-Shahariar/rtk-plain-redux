@@ -7,12 +7,17 @@ const initialState = {
   error: "",
 };
 
-const fetchRelatedPost = createAsyncThunk("relatedPost/fetch", async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-  const posts = await response.json();
+const fetchRelatedPost = createAsyncThunk(
+  "relatedPost/fetch",
+  async (first, second) => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/1"
+    );
+    const posts = await response.json();
 
-  return posts;
-});
+    return posts;
+  }
+);
 
 const relatedPostSlice = createSlice({
   name: "post",
@@ -35,4 +40,4 @@ const relatedPostSlice = createSlice({
 });
 
 module.exports = relatedPostSlice.reducer;
-module.exports.fetchPost = fetchRelatedPost;
+module.exports.fetchRelatedPost = fetchRelatedPost;
