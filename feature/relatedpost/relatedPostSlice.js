@@ -10,17 +10,18 @@ const initialState = {
 const fetchRelatedPost = createAsyncThunk(
   "relatedPost/fetch",
   async (first, second) => {
+    console.log(first, second);
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/posts/1"
+      `https://jsonplaceholder.typicode.com/posts?title_like=${first}&title_like=${second}`
     );
-    const posts = await response.json();
+    const relatedposts = await response.json();
 
-    return posts;
+    return relatedposts;
   }
 );
 
 const relatedPostSlice = createSlice({
-  name: "post",
+  name: "relatedPost",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchRelatedPost.pending, (state, action) => {
@@ -29,11 +30,11 @@ const relatedPostSlice = createSlice({
     });
     builder.addCase(fetchRelatedPost.fulfilled, (state, action) => {
       state.loading = false;
-      state.post = JSON.stringify(action.payload);
+      state.relatedPost = JSON.stringify(action.payload);
     });
     builder.addCase(fetchRelatedPost.rejected, (state, action) => {
       state.loading = false;
-      state.post = [];
+      state.relatedPost = [];
       state.error = action.error.message;
     });
   },
